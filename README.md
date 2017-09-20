@@ -9,12 +9,12 @@ Customers can spend their earned points to have discount on future orders.
 Reward plugin is customizable to satisfy the majority of e-commerce requirments.
 However, it's developed in a manner to make it easy for customization.
 
-### The reward program target which customers? ###
+#### The reward program target which customers? ####
 Per default, any customer is part of reward program.
 However, it's possible to restrict target customers to a specific list of groups.
    
 
-### When a customer earn reward points? ###
+#### When a customer earn reward points? ####
 A customer will earn reward points if he satisfy certain rules, bellow a list of v1 rules.
 
 * Give customers **[X]** reward points on every **[Y]** euro spent.
@@ -23,19 +23,19 @@ A customer will earn reward points if he satisfy certain rules, bellow a list of
 
 Also, an administrator can manually give any customer a number of reward points. 
 
-### How a customer can spend his earned reward points ###
+#### How a customer can spend his earned reward points? ####
 
 Per default, reward points can be used to apply discounts on any product.
 However, it's possible to black-list certain products.
 
 ## Setting up the plugin ##
 
-### 1) Download the plugin ### 
+#### 1) Download the plugin #### 
 ```bash
 $ composer require snake-tn/reward-plugin
 
 ```
-### 2) Enable the plugin ###
+#### 2) Enable the plugin ####
 Enable the plugin by adding the following line in the app/AppKernel.php file of your sylius project:
 
 ```php
@@ -54,15 +54,15 @@ class AppKernel extends Kernel
 }
 ```
 
-### 3) Update routing configuration ###
+#### 3) Update routing configuration ####
  // TODO
-### 4) Update DB schema ###
+#### 4) Update DB schema ####
 ```bash
 $ bin/console doctrine:schema:update --force
 
 ```
 
-### 5) Cleare cache ###
+#### 5) Cleare cache ####
 ```bash
 $ bin/console cache:clear
 
