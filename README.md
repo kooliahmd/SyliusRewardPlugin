@@ -7,11 +7,11 @@ Customers can spend their earned points to have discount on future orders.
 ## Use case ##
 
 Reward plugin is customizable to satisfy the majority of e-commerce requirments.
-However, it's developed in a manner to make it easy to customise it.
+However, it's developed in a manner to make it easy for customization.
 
-### The reward program target which customer? ###
+### The reward program target which customers? ###
 Per default, any customer is part of reward program.
-However, it's possible to restrict target customers to a specific list of customer groups.
+However, it's possible to restrict target customers to a specific list of groups.
    
 
 ### When a customer earn reward points? ###
