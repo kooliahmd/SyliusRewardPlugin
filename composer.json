@@ -1,0 +1,21 @@
+{
+    "name": "snake-tn/reward-plugin",
+    "description": "Add reward program to sylius application",
+    "type": "sylius-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmed Kooli",
+            "email": "kooliahmd@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^6.3",
+        "webmozart/assert": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SnakeTn\\Reward\\": ""
+        }
+    }
+}
