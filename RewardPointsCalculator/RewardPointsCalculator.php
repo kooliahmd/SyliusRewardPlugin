@@ -11,53 +11,36 @@
 
 namespace SnakeTn\Reward\RewardPointsCalculator;
 
-use Webmozart\Assert\Assert;
-
 class RewardPointsCalculator
 {
     /**
      * @var RewardPointsCalculatorInterface[]
      */
-    private $unitRewardPointsCalculators;
+    private $unitRewardPointsCalculators = [];
 
     /**
      * @param float $totalAmount
      * @param array $config
      * @return int
      */
-    public function calculate(float $totalAmount, array $config): int
+    public function calculate(int $totalAmount): int
     {
-        Assert::isArray($config);
         $rewardPoints = 0;
-        foreach ($config as $calculatorConfig) {
-            Assert::notEmpty($calculatorConfig['type']);
-
-            $rewardPoints += $this->getUnitRewardPointsCalculatorPerType($calculatorConfig['type'])
-                ->calculate($totalAmount, $calculatorConfig);
+        foreach ($this->unitRewardPointsCalculators as $unitRewardPointsCalculator) {
+            $rewardPoints += $unitRewardPointsCalculator->calculate($totalAmount);
         }
         return $rewardPoints;
-    }
-
-    /**
-     * @param $type
-     * @return RewardPointsCalculatorInterface
-     * @throws \Exception
-     */
-    private function getUnitRewardPointsCalculatorPerType(string $type): RewardPointsCalculatorInterface
-    {
-        if (!isset($this->unitRewardPointsCalculators[$type])) {
-            throw new \Exception(sprintf('Reward points calculator for %s type is not defined', $type));
-        }
-        return $this->unitRewardPointsCalculators[$type];
     }
 
     /**
      * @param string $type
      * @param RewardPointsCalculatorInterface $rewardPointsCalculator
      */
-    public function addUnitRewardPointsCalculator(string $type, RewardPointsCalculatorInterface $rewardPointsCalculator): void
+    public function addUnitRewardPointsCalculator(RewardPointsCalculatorInterface $rewardPointsCalculator): void
     {
-        $this->unitRewardPointsCalculators[$type] = $rewardPointsCalculator;
+        if (!in_array($rewardPointsCalculator, $this->unitRewardPointsCalculators)) {
+            $this->unitRewardPointsCalculators[] = $rewardPointsCalculator;
+        }
     }
 
 }

@@ -13,5 +13,5 @@ namespace SnakeTn\Reward\RewardPointsCalculator;
 
 interface RewardPointsCalculatorInterface
 {
-    public function calculate(float $totalAmount, array $config): int;
+    public function calculate(int $totalAmount): int;
 }

@@ -15,12 +15,18 @@ use Webmozart\Assert\Assert;
 
 class FixedStepRewardPointsCalculator implements RewardPointsCalculatorInterface
 {
-    public function calculate(float $totalAmount, array $config): int
-    {
-        Assert::isArray($config);
-        Assert::numeric($config['step']);
+    private $stepAmount;
+    private $numberOfRewardPointsToEarnPerStep;
 
-        return (int)($totalAmount/$config[step]) * $config['number_of_rp'];
+    public function __construct(int $stepAmount, int $numberOfRewardPointsToEarnPerStep)
+    {
+        $this->stepAmount = $stepAmount;
+        $this->numberOfRewardPointsToEarnPerStep = $numberOfRewardPointsToEarnPerStep;
+    }
+
+    public function calculate(int $totalAmount): int
+    {
+        return (int)($totalAmount / $this->stepAmount) * $this->numberOfRewardPointsToEarnPerStep;
     }
 
 }
