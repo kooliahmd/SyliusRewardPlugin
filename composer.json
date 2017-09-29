@@ -11,7 +11,8 @@
     ],
     "require": {
         "phpunit/phpunit": "^6.3",
-        "webmozart/assert": "^1.2"
+        "webmozart/assert": "^1.2",
+        "sylius/customer": "^1.0"
     },
     "autoload": {
         "psr-4": {

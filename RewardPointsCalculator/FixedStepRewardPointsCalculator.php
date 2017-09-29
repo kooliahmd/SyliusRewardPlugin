@@ -15,7 +15,14 @@ use Webmozart\Assert\Assert;
 
 class FixedStepRewardPointsCalculator implements RewardPointsCalculatorInterface
 {
+    /**
+     * @var int
+     */
     private $stepAmount;
+
+    /**
+     * @var int
+     */
     private $numberOfRewardPointsToEarnPerStep;
 
     public function __construct(int $stepAmount, int $numberOfRewardPointsToEarnPerStep)

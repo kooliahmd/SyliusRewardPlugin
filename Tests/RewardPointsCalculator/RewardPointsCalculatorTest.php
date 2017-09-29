@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SnakeTn\Tests;
+namespace SnakeTn\Tests\RewardPointsCalculator;
 
 use PHPUnit\Framework\TestCase;
 use SnakeTn\Reward\RewardPointsCalculator\FixedStepRewardPointsCalculator;

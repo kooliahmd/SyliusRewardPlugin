@@ -18,11 +18,6 @@ class RewardPointsCalculator
      */
     private $unitRewardPointsCalculators = [];
 
-    /**
-     * @param float $totalAmount
-     * @param array $config
-     * @return int
-     */
     public function calculate(int $totalAmount): int
     {
         $rewardPoints = 0;
@@ -32,10 +27,6 @@ class RewardPointsCalculator
         return $rewardPoints;
     }
 
-    /**
-     * @param string $type
-     * @param RewardPointsCalculatorInterface $rewardPointsCalculator
-     */
     public function addUnitRewardPointsCalculator(RewardPointsCalculatorInterface $rewardPointsCalculator): void
     {
         if (!in_array($rewardPointsCalculator, $this->unitRewardPointsCalculators)) {
