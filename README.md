@@ -1,3 +1,4 @@
+[![Build status on Linux](https://api.travis-ci.org/Snake-Tn/SyliusRewardPlugin.svg?branch=master)](https://travis-ci.org/Snake-Tn/SyliusRewardPlugin)
 # Reward plugin for sylius #
 
 ## About ##
