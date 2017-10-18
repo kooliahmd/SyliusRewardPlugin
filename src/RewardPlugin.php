@@ -8,12 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare(strict_types=1);
 
-namespace SnakeTn\Reward\CustomerEligibilityChecker;
+namespace SnakeTn\Reward;
 
-use Sylius\Component\Customer\Model\CustomerInterface;
+use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-interface CustomerEligibilityCheckerInterface
+class RewardPlugin extends Bundle
 {
-    public function check(CustomerInterface $customer);
+    use SyliusPluginTrait;
+
 }

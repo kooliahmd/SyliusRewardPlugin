@@ -10,13 +10,19 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "^6.3",
-        "webmozart/assert": "^1.2",
-        "sylius/customer": "^1.0"
+        "sylius/sylius": "^1.0.0",
+        "symfony/http-kernel": "^3.3"
+    },
+    "require-dev":{
+        "phpunit/phpunit": "^6.3"
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "autoload": {
         "psr-4": {
-            "SnakeTn\\Reward\\": ""
+            "SnakeTn\\Reward\\": "src",
+            "SnakeTn\\Reward\\Tests\\": "tests"
         }
     }
 }
