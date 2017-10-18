@@ -13,9 +13,6 @@
         "sylius/sylius": "^1.0.0",
         "symfony/http-kernel": "^3.3"
     },
-    "require-dev":{
-        "phpunit/phpunit": "^6.3"
-    },
     "config": {
         "bin-dir": "bin"
     },
@@ -24,5 +21,8 @@
             "SnakeTn\\Reward\\": "src",
             "SnakeTn\\Reward\\Tests\\": "tests"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
     }
 }
