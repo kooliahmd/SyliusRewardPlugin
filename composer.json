@@ -11,7 +11,9 @@
     ],
     "require": {
         "sylius/sylius": "^1.0.0",
-        "symfony/http-kernel": "^3.3"
+        "symfony/http-kernel": "^3.3",
+        "symfony/dependency-injection": "^3.3",
+        "symfony/config": "^3.3"
     },
     "config": {
         "bin-dir": "bin"

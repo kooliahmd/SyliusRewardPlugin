@@ -1,0 +1,4 @@
+services:
+    SnakeTn\Reward\Form\Extension\CartTypeExtension:
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartType }

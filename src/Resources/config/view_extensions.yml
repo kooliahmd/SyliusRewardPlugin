@@ -1,0 +1,6 @@
+services:
+    reward.form.reward_points_input:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments: ['@@RewardPlugin/Cart/Summary/reward_point_input.html.twig']
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.cart.summary.after_coupon, method: onBlockEvent }

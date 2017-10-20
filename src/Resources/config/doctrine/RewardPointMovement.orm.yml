@@ -1,0 +1,31 @@
+SnakeTn\Reward\Entity\RewardPointMovement:
+  type: entity
+  table: reward_point_movement
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    value:
+      type: integer
+    origin:
+      type: string
+      columnDefinition: "ENUM('order_creation', 'admin_intervention')"
+    createdAt:
+      type: datetime
+      column: created_at
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      column: updated_at
+      gedmo:
+        timestampable:
+          on: update
+  oneToOne:
+    customer:
+      targetEntity: Sylius\Component\Order\Model\Order
+      joinColumn:
+        name: customer_id
+        referencedColumnName: id
