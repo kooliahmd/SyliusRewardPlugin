@@ -12,11 +12,19 @@ declare(strict_types=1);
 
 namespace SnakeTn\Reward;
 
+use SnakeTn\Reward\DependencyInjection\Compiler\OrderEntityGenerator;
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class RewardPlugin extends Bundle
 {
     use SyliusPluginTrait;
+
+    public function build(ContainerBuilder $container)
+    {
+        $container->addCompilerPass(new OrderEntityGenerator());
+    }
+
 
 }

@@ -1,0 +1,10 @@
+SnakeTn\Reward\Entity\Order:
+  type: entity
+  table: sylius_order
+  oneToOne:
+    usedRewardPointMovement:
+      cascade: [all]
+      targetEntity: SnakeTn\Reward\Entity\RewardPointMovement
+      joinColumn:
+        name: used_reward_point_movement_id
+        referenceColumnName: id

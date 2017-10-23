@@ -1,4 +1,7 @@
 services:
     SnakeTn\Reward\Form\Extension\CartTypeExtension:
+        lazy: true
+        arguments:
+          - "@=service('sylius.context.cart').getCart()"
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartType }

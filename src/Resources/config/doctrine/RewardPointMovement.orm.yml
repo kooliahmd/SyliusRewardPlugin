@@ -10,7 +10,6 @@ SnakeTn\Reward\Entity\RewardPointMovement:
       type: integer
     origin:
       type: string
-      columnDefinition: "ENUM('order_creation', 'admin_intervention')"
     createdAt:
       type: datetime
       column: created_at
