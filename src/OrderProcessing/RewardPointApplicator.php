@@ -30,7 +30,7 @@ class RewardPointApplicator
     {
         $rewardMovement = $order->getUsedRewardPointMovement();
         $numberOfRewardPoints = $rewardMovement->getValue();
-        $amount = $this->exchangeRewardPointToAmount($numberOfRewardPoints);
+        $amount = $this->exchangeRewardPointsToAmount($numberOfRewardPoints);
 
         $adjustment = $this->adjustmentFactory->createWithData(self::ORDER_REWARD_ADJUSTMENT, '', $amount);
         $order->addAdjustment($adjustment);
@@ -41,7 +41,7 @@ class RewardPointApplicator
         $order->removeAdjustments(self::ORDER_REWARD_ADJUSTMENT);
     }
 
-    private function exchangeRewardPointToAmount(int $numberOfRewardPoints): int
+    private function exchangeRewardPointsToAmount(int $numberOfRewardPoints): int
     {
         return -1 * $numberOfRewardPoints;
     }

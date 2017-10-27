@@ -18,10 +18,16 @@ use Sylius\Component\Order\Processor\OrderProcessorInterface;
 
 class RewardPointProcessor implements OrderProcessorInterface
 {
+    private $rewardPointApplicator;
+
+    public function __construct(RewardPointApplicator $rewardPointApplicator)
+    {
+        $this->rewardPointApplicator = $rewardPointApplicator;
+    }
 
     public function process(OrderInterface $order): void
     {
-        $amount = $order->
-
+        $this->rewardPointApplicator->revert($order);
+        $this->rewardPointApplicator->apply($order);
     }
 }

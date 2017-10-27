@@ -40,9 +40,10 @@ class RewardPointMovement
         $this->id = $id;
     }
 
-    public function getValue()
+    public function getValue(): int
     {
-        return $this->value;
+        //Doctrine is returning string for an int column, it looks relaying on php none typed variables which SUCKS.
+        return (int)$this->value;
     }
 
     public function setValue($value)

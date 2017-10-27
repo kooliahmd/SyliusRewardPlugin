@@ -2,7 +2,12 @@ services:
   order_processing.order_reward_processor:
     class: SnakeTn\Reward\OrderProcessing\RewardPointProcessor
     arguments:
-      - "@sylius.factory.adjustment"
+      - "@order_processing.order_reward_applicator"
     tags:
       - name: sylius.order_processor
         priority: 99
+
+  order_processing.order_reward_applicator:
+    class: SnakeTn\Reward\OrderProcessing\RewardPointApplicator
+    arguments:
+      - "@sylius.factory.adjustment"

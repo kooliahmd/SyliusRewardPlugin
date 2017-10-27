@@ -1,0 +1,8 @@
+SnakeTn\Reward\Entity\RewardPointMovement:
+  properties:
+    value:
+      - NotBlack
+      - Range:
+        min: 1
+
+
