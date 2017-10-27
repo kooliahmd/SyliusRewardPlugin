@@ -23,6 +23,7 @@ class RewardExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('view_extensions.yml');
         $loader->load('form_type_extensions.yml');
+        $loader->load('order_processing_extensions.yml');
     }
 
 }

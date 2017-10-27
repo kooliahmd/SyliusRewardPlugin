@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace SnakeTn\Reward\RewardPointsCalculator;
 
-use Webmozart\Assert\Assert;
 
 class FixedStepRewardPointsCalculator implements RewardPointsCalculatorInterface
 {

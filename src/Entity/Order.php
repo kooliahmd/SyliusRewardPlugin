@@ -17,7 +17,7 @@ class Order extends BaseOrder
 {
     private $usedRewardPointMovement;
 
-    public function getUsedRewardPointMovement()
+    public function getUsedRewardPointMovement(): RewardPointMovement
     {
         return $this->usedRewardPointMovement;
     }
