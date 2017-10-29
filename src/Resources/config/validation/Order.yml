@@ -1,0 +1,8 @@
+SnakeTn\Reward\Entity\Order:
+#  constraints:
+#    - SnakeTn\Reward\Validator\Constraints\UsedRewardPointsNumber :
+#        groups: [used_reward_points_number]
+  properties:
+    usedRewardPointMovement:
+      - Valid: ~
+

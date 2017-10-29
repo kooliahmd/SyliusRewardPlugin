@@ -1,8 +1,6 @@
 SnakeTn\Reward\Entity\RewardPointMovement:
   properties:
     value:
-      - NotBlack
-      - Range:
-        min: 1
-
-
+      - GreaterThan:
+          value: 0
+          groups: [used_reward_points_number]

@@ -29,6 +29,10 @@ class RewardPointApplicator
     public function apply(Order $order): void
     {
         $rewardMovement = $order->getUsedRewardPointMovement();
+        //@TODO remove test when implement NullObject pattern.
+        if (!$rewardMovement) {
+            return;
+        }
         $numberOfRewardPoints = $rewardMovement->getValue();
         $amount = $this->exchangeRewardPointsToAmount($numberOfRewardPoints);
 
