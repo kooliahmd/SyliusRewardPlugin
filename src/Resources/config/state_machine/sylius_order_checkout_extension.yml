@@ -1,0 +1,7 @@
+sylius_order_checkout:
+  callbacks:
+    after:
+      save_earned_reward_points:
+        on: ["complete"]
+        do: ["@reward.earned_reward_points_persistor", "persist"]
+        args: ["object"]

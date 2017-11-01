@@ -1,0 +1,17 @@
+services:
+  reward.earned_reward_points_persistor:
+    class: SnakeTn\Reward\EarnedRewardPointsProcessing\EarnedRewardPointsPersistor
+    arguments:
+      - '@reward.reward_points_calculator'
+      - '@doctrine.orm.entity_manager'
+
+  reward.reward_points_calculator:
+    class: SnakeTn\Reward\RewardPointsCalculator\RewardPointsCalculator
+    calls:
+      - [addUnitRewardPointsCalculator, ['@reward.fixed_step_reward_points_calculator']]
+
+  reward.fixed_step_reward_points_calculator:
+    class: SnakeTn\Reward\RewardPointsCalculator\FixedStepRewardPointsCalculator
+    arguments:
+      $stepAmount: ~
+      $numberOfRewardPointsToEarnPerStep: ~

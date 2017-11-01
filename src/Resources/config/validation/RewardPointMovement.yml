@@ -1,6 +1,6 @@
 SnakeTn\Reward\Entity\RewardPointMovement:
   properties:
     value:
-      - GreaterThan:
+      - GreaterThanOrEqual:
           value: 0
           groups: [used_reward_points_number]

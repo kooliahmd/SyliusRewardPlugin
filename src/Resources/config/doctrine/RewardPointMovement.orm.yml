@@ -1,5 +1,6 @@
 SnakeTn\Reward\Entity\RewardPointMovement:
   type: entity
+  repositoryClass: SnakeTn\Reward\Repository\RewardPointMovementRepository
   table: reward_point_movement
   id:
     id:
@@ -22,9 +23,9 @@ SnakeTn\Reward\Entity\RewardPointMovement:
       gedmo:
         timestampable:
           on: update
-  oneToOne:
+  manyToOne:
     customer:
-      targetEntity: Sylius\Component\Order\Model\Order
+      targetEntity: Sylius\Component\Core\Model\Customer
       joinColumn:
         name: customer_id
         referencedColumnName: id
