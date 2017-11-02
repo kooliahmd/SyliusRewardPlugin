@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraint;
 
 class UsedRewardPointsNumber extends Constraint
 {
-    public $message = 'sylius.reward_points.is_invalid';
+    public $message = 'reward.used_reward_points.is_invalid';
 
     public function getTargets(): string
     {

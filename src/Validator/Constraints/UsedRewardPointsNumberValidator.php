@@ -11,17 +11,30 @@ declare(strict_types=1);
 
 namespace SnakeTn\Reward\Validator\Constraints;
 
+use SnakeTn\Reward\CustomerEligibilityChecker\CustomerEligibilityCheckerInterface;
+use Sylius\Component\Core\Model\OrderInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
 class UsedRewardPointsNumberValidator extends ConstraintValidator
 {
-    public function validate($value, Constraint $constraint)
+    private $customerEligibilityChecker;
+
+    public function __construct(CustomerEligibilityCheckerInterface $customerEligibilityChecker)
     {
-        $rewardPointsNumber = $value->getUsedRewardPointMovement()->getValue();
-//        if($rewardPointsNumber < $value->getCustomer())
-//        $ss = 1;
-//        // TODO: Implement validate() method.
+        $this->customerEligibilityChecker = $customerEligibilityChecker;
+    }
+
+    public function validate($order, Constraint $constraint)
+    {
+        /**@var $order OrderInterface */
+
+        if (!$order->getCustomer()) {
+            $this->context->addViolation("reward.used_reward_points.customer_is_missing");
+        } elseif (!$this->customerEligibilityChecker->check($order->getCustomer())) {
+            $this->context->addViolation("reward.used_reward_points.customer_not_eligible");
+        }
+
     }
 
 }
