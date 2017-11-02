@@ -15,7 +15,6 @@ namespace SnakeTn\Reward\EarnedRewardPointsProcessing;
 
 use Doctrine\ORM\EntityManagerInterface;
 use SnakeTn\Reward\Entity\RewardPointMovement;
-use SnakeTn\Reward\Repository\RewardPointMovementRepository;
 use SnakeTn\Reward\RewardPointsCalculator\RewardPointsCalculator;
 use Sylius\Component\Core\Model\OrderInterface;
 

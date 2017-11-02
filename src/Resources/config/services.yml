@@ -15,3 +15,21 @@ services:
     arguments:
       $stepAmount: ~
       $numberOfRewardPointsToEarnPerStep: ~
+
+  reward.customer_eligibility_checker:
+    class: SnakeTn\Reward\CustomerEligibilityChecker\CustomerEligibilityChecker
+    calls:
+      - [addUnitCustomerEligibilityChecker, ['@reward.by_group_customer_eligibility_checker']]
+
+  reward.by_group_customer_eligibility_checker:
+    class: SnakeTn\Reward\CustomerEligibilityChecker\ByGroupCustomerEligibilityChecker
+    arguments:
+    - []
+    - []
+
+  reward.constraints.used_reward_points_number_validator:
+    class: SnakeTn\Reward\Validator\Constraints\UsedRewardPointsNumberValidator
+    tags:
+     - name: validator.constraint_validator
+    arguments:
+      - '@reward.customer_eligibility_checker'
