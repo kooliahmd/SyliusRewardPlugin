@@ -16,6 +16,7 @@ use SnakeTn\Reward\Entity\RewardPointMovement;
 use Sylius\Bundle\OrderBundle\Form\Type\CartType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,36 +26,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CartTypeExtension extends AbstractTypeExtension
 {
-    private $order;
+    private $rewardPointsTransformer;
 
-    public function __construct(Order $order)
+    public function __construct(DataTransformerInterface $rewardPointsTransformer)
     {
-        $this->order = $order;
+        $this->rewardPointsTransformer = $rewardPointsTransformer;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('usedRewardPointMovement', TextType::class, [
+        $builder->add('usedRewardPointMovement', IntegerType::class, [
             'required' => false
         ]);
         $builder->get('usedRewardPointMovement')
-            ->addViewTransformer(new CallbackTransformer(
-
-                    function ($usedRewardPointMouvement) {
-                        if (!empty($usedRewardPointMouvement)) {
-                            return $usedRewardPointMouvement->getValue();
-                        }
-                    },
-                    function ($numberOfRewardPointsToUse) {
-                        $rewardPointMovement = $this->order->getUsedRewardPointMovement();
-                        if (empty($rewardPointMovement)) {
-                            $rewardPointMovement = new RewardPointMovement();
-                            $rewardPointMovement->setOrigin(RewardPointMovement::ORDER_CREATION_ORIGIN);
-                        }
-                        $rewardPointMovement->setValue($numberOfRewardPointsToUse);
-                        return $rewardPointMovement;
-                    })
-            );
+            ->addViewTransformer($this->rewardPointsTransformer, true);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

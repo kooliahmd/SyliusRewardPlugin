@@ -1,7 +1,14 @@
 services:
     SnakeTn\Reward\Form\Extension\CartTypeExtension:
-        lazy: true
-        arguments:
-          - "@=service('sylius.context.cart').getCart()"
-        tags:
-            - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartType }
+      lazy: true
+      arguments:
+        - "@reward.used_reward_point_number_to_reward_point_movement_transformer"
+      tags:
+          - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartType }
+
+
+    reward.used_reward_point_number_to_reward_point_movement_transformer:
+      class: SnakeTn\Reward\Form\DataTransformer\UsedRewardPointNumberToRewardPointMovementTransformer
+      lazy: true
+      arguments:
+        - "@=service('sylius.context.cart').getCart()"
