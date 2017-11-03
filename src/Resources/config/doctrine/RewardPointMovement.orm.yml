@@ -11,6 +11,9 @@ SnakeTn\Reward\Entity\RewardPointMovement:
       type: integer
     origin:
       type: string
+    isActive:
+      type: smallint
+      default: 0
     createdAt:
       type: datetime
       column: created_at

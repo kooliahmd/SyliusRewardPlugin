@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace SnakeTn\Tests\RewardPointsCalculator;
+namespace SnakeTn\Reward\Tests\RewardPointsCalculator;
 
 use PHPUnit\Framework\TestCase;
 use SnakeTn\Reward\RewardPointsCalculator\FixedStepRewardPointsCalculator;

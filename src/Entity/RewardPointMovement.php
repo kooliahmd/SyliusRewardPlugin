@@ -32,6 +32,18 @@ class RewardPointMovement
 
     private $origin;
 
+    private $isActive;
+
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
     public function getId()
     {
         return $this->id;

@@ -14,8 +14,24 @@ declare(strict_types=1);
 namespace SnakeTn\Reward\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use SnakeTn\Reward\Entity\RewardPointMovement;
+use Sylius\Component\Core\Model\CustomerInterface;
 
 class RewardPointMovementRepository extends EntityRepository
 {
+    /**
+     * @param CustomerInterface $customer
+     * @return RewardPointMovement[]
+     */
+    public function findActiveMovementsPerCustomer(CustomerInterface $customer): array
+    {
+        $query = $this->createQueryBuilder('mouvement')
+            ->where('mouvement.isActive = true')
+            ->andWhere('mouvement.customer = :customer')
+            ->setParameter(':custmer', $customer)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 
 }

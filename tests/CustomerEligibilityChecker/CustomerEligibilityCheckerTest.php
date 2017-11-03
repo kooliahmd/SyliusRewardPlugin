@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace CustomerEligibilityChecker;
+namespace SnakeTn\Reward\Tests\CustomerEligibilityChecker;
 
 use PHPUnit\Framework\TestCase;
 use SnakeTn\Reward\CustomerEligibilityChecker\ByGroupCustomerEligibilityChecker;

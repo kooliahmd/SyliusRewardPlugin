@@ -24,8 +24,13 @@ services:
   reward.by_group_customer_eligibility_checker:
     class: SnakeTn\Reward\CustomerEligibilityChecker\ByGroupCustomerEligibilityChecker
     arguments:
-    - []
-    - []
+      - []
+      - []
+
+  reward.available_reward_points_checker:
+    class: SnakeTn\Reward\AvailableRewardPointsChecker\AvailableRewardPointsChecker
+    arguments:
+     - '@=service("doctrine.orm.entity_manager").getRepository("RewardPlugin:RewardPointMovement")'
 
   reward.constraints.used_reward_points_number_validator:
     class: SnakeTn\Reward\Validator\Constraints\UsedRewardPointsNumberValidator
@@ -33,3 +38,4 @@ services:
      - name: validator.constraint_validator
     arguments:
       - '@reward.customer_eligibility_checker'
+      - '@reward.available_reward_points_checker'
